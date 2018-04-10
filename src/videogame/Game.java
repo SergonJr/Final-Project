@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectofinal;
+package videogame;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -44,7 +44,7 @@ public class Game implements Runnable
         this.height = height;
         running = false;
         keyManager = new KeyManager();
-        cam = new Camera(0, 0, 0, 0, this, player);
+        
     }
 
     /**
@@ -74,7 +74,8 @@ public class Game implements Runnable
     {
         display = new Display(title, getWidth(), getHeight());
         Assets.init();
-        player = new Player(this.getWidth() / 2, this.getHeight() / 2, 300, 300, this);               
+        cam = new Camera(0, 0, 0, 0, this, player);
+        player = new Player(cam.getX() + 280, cam.getY() + 150, 50, 50, this);         
         display.getJframe().addKeyListener(keyManager);
     }
 
@@ -141,9 +142,10 @@ public class Game implements Runnable
         {                        
             g = bs.getDrawGraphics();
             Graphics2D g2d = (Graphics2D) g;
+            g2d.scale(3, 3);
             g2d.translate(-cam.getX(), cam.getY());
             
-            g.drawImage(Assets.background, -width/2, -height/2, width * 2, height * 2, null);
+            g.drawImage(Assets.background, -width/2, -height/2, 2560, 962, null);
             player.render(g);
             
             bs.show();
@@ -181,6 +183,11 @@ public class Game implements Runnable
                 ie.printStackTrace();
             }
         }
+    }
+
+    public Camera getCam()
+    {
+        return cam;
     }
 
 }

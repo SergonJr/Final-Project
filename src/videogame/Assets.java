@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectofinal;
+package videogame;
 
 import java.awt.image.BufferedImage;
 
@@ -23,7 +23,7 @@ public class Assets
      */
     public static void init()
     {
-        background = ImageLoader.loadImage("/images/space.jpg");
+        background = ImageLoader.loadImage("/images/maop.jpg");
         player = ImageLoader.loadImage("/images/zimShip.png");
         enemy = ImageLoader.loadImage("/images/enemy.png");
     }

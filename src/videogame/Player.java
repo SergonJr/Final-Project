@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectofinal;
+package videogame;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -28,23 +28,27 @@ public class Player extends Item
     public void tick()
     {
         // moving player depending on keys       
-        if (game.getKeyManager().Left)
+        //setX(game.getCam().getX() + 280);
+        //setY(game.getCam().getY() * - 1 + 150);
+        
+        if (game.getKeyManager().W)
         {
-            setX(getX() - speed);
+            setY(getY() - 5);
         }
-        if (game.getKeyManager().Right)
+        if (game.getKeyManager().S)
         {
-            setX(getX() + speed);
+            setY(getY() + 5);
         }
-        if (game.getKeyManager().Down) 
+        if (game.getKeyManager().A)
         {
-            setY(getY() + speed);
+            setX(getX() - 5);
         }
-        if (game.getKeyManager().Up) 
+        if (game.getKeyManager().D)
         {
-            setY(getY() - speed);
+            setX(getX() + 5);
         }
         // collision with walls
+        /*
         if (getX() + 100 >= game.getWidth())
         {
             setX(game.getWidth() - 100);
@@ -52,6 +56,7 @@ public class Player extends Item
         {
             setX(0);
         }
+        */        
     }
 
     @Override
